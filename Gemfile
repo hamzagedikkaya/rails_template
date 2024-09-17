@@ -66,3 +66,6 @@ gem "devise", "~> 4.9"
 gem "omniauth", ">= 1.0.0"
 
 gem "ransack"
+
+gem "rolify"
+gem "cancancan"
