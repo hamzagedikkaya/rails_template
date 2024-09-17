@@ -51,6 +51,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "byebug"
+  gem "letter_opener"
 end
 
 group :test do
@@ -60,3 +61,6 @@ group :test do
 end
 
 gem "hamlit"
+
+gem "devise", "~> 4.9"
+gem "omniauth", ">= 1.0.0"
