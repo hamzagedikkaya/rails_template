@@ -1,0 +1,20 @@
+.container.d-flex.justify-content-center.align-items-center.min-vh-100
+  .card.shadow-lg{style: "width: 40rem; border-radius: 15px;"}
+    .card-body.p-5
+      %h2.text-center.mb-4 Change your password
+
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        = f.hidden_field :reset_password_token
+
+        .field.mb-4
+          = f.input :password, label: "New password", input_html: { class: 'form-control form-control-lg' }, hint: (@minimum_password_length ? "(#{@minimum_password_length} characters minimum)" : nil)
+
+        .field.mb-4
+          = f.input :password_confirmation, label: "Confirm new password", input_html: { class: 'form-control form-control-lg' }
+
+        .actions.text-center
+          = f.submit "Change my password", class: 'btn btn-primary w-100 btn-lg'
+
+      .text-center.mt-5
+        = render "devise/shared/links"

@@ -1,0 +1,32 @@
+.container.d-flex.justify-content-center.align-items-center.min-vh-100
+  .card.shadow-lg{style: "width: 30rem; border-radius: 15px; height: auto;"}
+    .card-body.p-5
+      %h2.text-center.mb-4 Sign up
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        
+        .field.mb-4
+          = f.input :email, autofocus: true, autocomplete: "email", label: "Email", as: :email, input_html: {class: 'form-control form-control-lg'}
+        
+        .field.mb-4
+          = f.input :password, label: "Password", as: :password, input_html: {class: 'form-control form-control-lg'}, hint: (@minimum_password_length ? "(#{@minimum_password_length} characters minimum)" : nil)
+        
+        .field.mb-4
+          = f.input :password_confirmation, label: "Password confirmation", as: :password, input_html: {class: 'form-control form-control-lg'}
+
+        .actions.text-center
+          = f.submit "Sign up", class: 'btn btn-success w-100 btn-lg'
+
+      .mt-4.text-center
+        .mt-3
+          = render "devise/shared/links"
+
+:css
+  .mt-4 {
+    margin-top: 2rem !important;
+  }
+
+  .min-vh-100 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
