@@ -1,0 +1,18 @@
+%h1.text-center.mt-4 Roles
+= link_to 'Add New Role', new_role_path, class: 'btn btn-primary mb-4'
+= link_to 'Assign Role to User', assign_roles_path, class: 'btn btn-secondary mb-4'
+
+%div.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Actions
+    %tbody
+      - @roles.each do |role|
+        %tr
+          %td= role.name
+          %td
+            .btn-group
+              = link_to 'Edit', edit_role_path(role), class: 'btn btn-warning btn-sm me-2'
+              = button_to 'Delete', role_path(role), method: :delete, data: { confirm: 'Are you sure you want to delete this role?' }, class: 'btn btn-danger btn-sm'
