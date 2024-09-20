@@ -61,6 +61,7 @@ group :test do
 end
 
 gem "hamlit"
+gem "simple_form"
 
 gem "devise", "~> 4.9"
 gem "omniauth", ">= 1.0.0"
