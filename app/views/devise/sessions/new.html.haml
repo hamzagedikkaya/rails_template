@@ -1,0 +1,19 @@
+.container.d-flex.justify-content-center.align-items-center.min-vh-100
+  .card.shadow-lg{style: "width: 26rem; border-radius: 15px;"}
+    .card-body.p-5
+      %h2.text-center.mb-4 Log in
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field.mb-4
+          = f.input :email, autofocus: true, autocomplete: "email", label: "Email", as: :email, input_html: {class: 'form-control form-control-lg'}
+        .field.mb-4
+          = f.input :password, autocomplete: "current-password", label: "Password", as: :password, input_html: {class: 'form-control form-control-lg'}
+        - if devise_mapping.rememberable?
+          .form-check.mb-3
+            = f.check_box :remember_me, class: 'form-check-input'
+            = f.label :remember_me, class: 'form-check-label'
+        .actions.text-center
+          = f.submit "Log in", class: 'btn btn-primary w-100 btn-lg'
+
+      .mt-4.text-center
+        = render "devise/shared/links"
+

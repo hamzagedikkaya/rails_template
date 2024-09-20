@@ -1,0 +1,12 @@
+.container.d-flex.justify-content-center.align-items-center.min-vh-100
+  .card.shadow-lg{style: "width: 30rem; border-radius: 15px;"}
+    .card-body.p-4
+      %h2.text-center.mb-4 Hello!
+      %p.text-center
+        Hello #{@resource.email}!
+      %p.text-center
+        Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      %p.text-center
+        Click the link below to unlock your account:
+      %p.text-center
+        = link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token), class: 'btn btn-primary mt-2'

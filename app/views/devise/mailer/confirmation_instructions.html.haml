@@ -1,0 +1,10 @@
+.container.d-flex.justify-content-center.align-items-center.min-vh-100
+  .card.shadow-lg{style: "width: 30rem; border-radius: 15px;"}
+    .card-body.p-4
+      %h2.text-center.mb-4 Welcome!
+      %p.text-center
+        Welcome #{@email}!
+      %p.text-center
+        You can confirm your account email through the link below:
+      %p.text-center
+        = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: 'btn btn-primary'
