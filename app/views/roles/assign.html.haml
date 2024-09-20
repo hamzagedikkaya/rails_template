@@ -1,0 +1,45 @@
+%h1.text-center.mt-4 Assign Roles
+= simple_form_for :assignment, url: create_assignment_roles_path, method: :post do |f|
+  .card.mt-5
+    .card-header
+      %h5.card-title Assign Roles
+    
+    .card-body
+      .form-group
+        = f.input :user_ids, collection: @users, label_method: :email, value_method: :id, prompt: 'Choose users', input_html: { class: 'form-control', multiple: true, id: 'admin-select' }
+
+      .form-group
+        = f.input :role_ids, collection: @roles, label_method: :name, value_method: :id, prompt: 'Choose roles', input_html: { class: 'form-control', multiple: true, id: 'role-select' }
+
+    .card-footer
+      = f.button :submit, 'Assign Roles', class: 'btn btn-primary', style: 'float: right;'
+      = link_to 'Back', roles_path, class: 'btn btn-secondary', style: 'float: left;'
+
+.card.mt-5
+  .card-header
+    %h5.card-title All Users and Their Roles
+  .card-body
+    %table.table
+      %thead
+        %tr
+          %th User
+          %th Roles
+      %tbody
+        - User.all.each do |user|
+          %tr
+            %td= user.email
+            %td= user.roles.map(&:name).join(', ')
+
+.mb-5
+
+:javascript
+  $(function() {
+    $('#admin-select').select2({
+      placeholder: "Choose admins",
+      allowClear: true
+    });
+    $('#role-select').select2({
+      placeholder: "Choose roles",
+      allowClear: true
+    });
+  });

@@ -12,4 +12,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  resources :roles do
+    collection do
+      get "assign"
+      post "create_assignment"
+    end
+  end
 end
