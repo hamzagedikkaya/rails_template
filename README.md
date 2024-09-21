@@ -1,6 +1,7 @@
 ### Rails Template Project
 
-This project contains the first steps for building a project with **Rails**. It can be considered as a **quickstart template** that includes the following features.
+This project contains the first steps for building a project with **Rails**. It can be considered as a **quickstart template** that includes the following features. You can directly use the project by cloning or forking it, or you can create a new project yourself by running the following command: 
+
 
 ---
 
@@ -11,6 +12,8 @@ The project is initialized with **esbuild**, **Bootstrap**, and **PostgreSQL**:
 ```bash
 rails new rails_template -j esbuild -c bootstrap -d postgresql
 ```
+
+For a detailed explanation, [visit](https://hamzagedikkaya.github.io/).
 
 ---
 
