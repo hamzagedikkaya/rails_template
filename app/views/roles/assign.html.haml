@@ -19,16 +19,21 @@
   .card-header
     %h5.card-title All Users and Their Roles
   .card-body
-    %table.table
+    = search_form_for @q, url: assign_roles_path, method: :get, remote: true do |f|
+      .form-group.d-flex.mb-4
+        = f.text_field :email_cont, label: "Search by Email", class: 'form-control me-2', placeholder: 'Enter email to search', id: 'email-search'
+        = f.submit 'Search', class: 'btn btn-primary'
+
+    %table.table.table-bordered
       %thead
         %tr
-          %th User
-          %th Roles
+          %th E-posta
+          %th Roller
       %tbody
-        - User.all.each do |user|
+        - @users.each do |user|
           %tr
             %td= user.email
-            %td= user.roles.map(&:name).join(', ')
+            %td= user.roles.map(&:name).join(", ")
 
 .mb-5
 

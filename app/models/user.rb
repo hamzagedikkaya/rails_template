@@ -4,4 +4,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable,
          :trackable, :omniauthable
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "email" ]
+  end
 end
