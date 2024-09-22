@@ -1,8 +1,8 @@
 class RolesController < ApplicationController
   load_and_authorize_resource
+  before_action :set_roles, only: [ :index, :assign ]
 
   def index
-    @roles = Role.all
   end
 
   def new
@@ -35,8 +35,8 @@ class RolesController < ApplicationController
   end
 
   def assign
-    @users = User.all
-    @roles = Role.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).includes(:roles)
   end
 
   def create_assignment
@@ -61,6 +61,10 @@ class RolesController < ApplicationController
   end
 
   private
+
+  def set_roles
+    @roles = Role.all
+  end
 
   def role_params
     params.require(:role).permit(:name, :description)
