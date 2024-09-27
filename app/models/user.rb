@@ -16,7 +16,6 @@ class User < ApplicationRecord
   private
 
   def combine_names
-    byebug
     self.name_surname = "#{first_name} #{last_name}".strip
   end
 end
