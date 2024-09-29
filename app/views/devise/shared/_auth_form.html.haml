@@ -1,0 +1,83 @@
+.container.w-75.rounded-5.position-relative.overflow-hidden.shadow-lg#container.mt-5
+  .form-container.sign-up.w-50
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      %h1 Create Account
+      .row.my-4
+        .col
+          .form-group.position-relative
+            = f.input_field :first_name, id: "user_first_name", placeholder: " ", class: "form-control inp"
+            %label{for: "user_first_name"} 
+              %i.fas.fa-user
+              First Name
+        .col
+          .form-group.position-relative
+            = f.input_field :last_name, id: "user_last_name", placeholder: " ", class: "form-control inp"
+            %label{for: "user_last_name"} 
+              %i.fas.fa-user
+              Last Name
+      .row.my-4
+        .col
+          .form-group.position-relative
+            = f.input_field :email, id: "user_email", as: :email, placeholder: " ", class: "form-control inp"
+            %label{for: "user_email"}
+              %i.fas.fa-envelope
+              Email
+        .col
+          .form-group.position-relative
+            = f.input_field :gsm, id: "user_gsm", placeholder: " ", class: "form-control inp"
+            %label{for: "user_gsm"}
+              %i.fas.fa-phone
+              GSM
+      .row.my-4
+        .col
+          .form-group.position-relative
+            = f.input_field :password, id: "user_password", as: :password, placeholder: " ", class: "form-control inp"
+            %label{for: "user_password"}
+              %i.fas.fa-lock
+              Password
+        .col
+          .form-group.position-relative
+            = f.input_field :password_confirmation, id: "user_password_confirmation", placeholder: " ", class: "form-control inp"
+            %label{for: "user_password_confirmation"}
+              %i.fas.fa-lock
+              Confirmation
+      = f.button :submit, 'Sign Up', class: 'btn btn-outline-dark'
+
+  .form-container.sign-in.w-50
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      %h1 Log In
+      .form-group.position-relative.my-4
+        = f.input_field :email, id: "user_email", class: "form-control inp", placeholder: " "
+        %label{for: "user_email"} 
+          %i.fas.fa-user
+          Email
+      .form-group.position-relative.my-4
+        = f.input_field :password, id: "user_password", class: "form-control inp", placeholder: " "
+        %label{for: "user_password"} 
+          %i.fas.fa-lock
+          Password
+      = f.button :submit, 'Log In', class: 'btn btn-outline-dark'
+      
+  .toggle-container.position-absolute.top-0.start-50.w-50.h-100.overflow-hidden
+    .toggle.h-100.text-white.position-relative
+      .toggle-panel.toggle-left.position-absolute.w-50.h-100.d-flex.align-items-center.justify-content-center.flex-column.p-3.text-center.top-0
+        %h1 Welcome Back!
+        %p Enter your personal details to use all of site features
+        %button.hidden.btn.btn-outline-light#login Log In
+      .toggle-panel.toggle-right.position-absolute.w-50.h-100.d-flex.align-items-center.justify-content-center.flex-column.p-3.text-center.top-0
+        %h1 Hello, Friend!
+        %p Register with your personal details to use all of site features
+        %button.hidden.btn.btn-outline-light#register Sign Up
+
+:javascript
+  const container = document.getElementById('container');
+  const registerBtn = document.getElementById('register');
+  const loginBtn = document.getElementById('login');
+
+  registerBtn.addEventListener('click', () => {
+      container.classList.add("active");
+  });
+
+  loginBtn.addEventListener('click', () => {
+      container.classList.remove("active");
+  });
