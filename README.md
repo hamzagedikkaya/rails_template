@@ -2,7 +2,6 @@
 
 This project contains the first steps for building a project with **Rails**. It can be considered as a **quickstart template** that includes the following features. You can directly use the project by cloning or forking it, or you can create a new project yourself by running the following command: 
 
-
 ---
 
 #### 🚀 Project Setup
