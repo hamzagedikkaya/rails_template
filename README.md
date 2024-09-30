@@ -31,8 +31,12 @@ The project includes the following important gems:
 
 ### 💻 Project Features
 
-- **Navbar**: A simple **navbar** structure is included in the project.
-- **UI Enhancements**: Design improvements are in progress, such as login and signup page optimizations for the **Devise** gem.
+- **Navbar**: A simple, responsive *navbar* is included to help you get started with UI design.
+- **UI Enhancements**: Includes improved *login and signup pages* with animations to optimize user experience.
+- **Role Management Page**: A basic *role management page* has been added for assigning roles to users.
+
+You can find the design example below:
+[example](/app/assets/images/readme.png)
 
 ---
 

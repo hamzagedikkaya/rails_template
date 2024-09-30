@@ -1,31 +1,33 @@
-%h1.text-center.mt-4 Assign Roles
+%h1.text-center.mt-4.display-4 Assign Roles
+
 = simple_form_for :assignment, url: create_assignment_roles_path, method: :post do |f|
-  .card.mt-5
-    .card-header
-      %h5.card-title Assign Roles
+  .card.mt-5.shadow-lg
+    .card-header.bg-primary.text-white
+      %h5.card-title.text-center Assign Roles
     
     .card-body
       .form-group
-        = f.input :user_ids, collection: @users, label_method: :email, value_method: :id, prompt: 'Choose users', input_html: { class: 'form-control', multiple: true, id: 'admin-select' }
+        = f.input :user_ids, collection: @users, label_method: :email, value_method: :id, label: false, prompt: 'Select users...', input_html: { class: 'form-control', multiple: true, id: 'admin-select' }
 
-      .form-group
-        = f.input :role_ids, collection: @roles, label_method: :name, value_method: :id, prompt: 'Choose roles', input_html: { class: 'form-control', multiple: true, id: 'role-select' }
+      .form-group.mt-4
+        = f.input :role_ids, collection: @roles, label_method: :name, value_method: :id, label: false, prompt: 'Select roles...', input_html: { class: 'form-control', multiple: true, id: 'role-select' }
 
-    .card-footer
-      = f.button :submit, 'Assign Roles', class: 'btn btn-primary', style: 'float: right;'
-      = link_to 'Back', roles_path, class: 'btn btn-secondary', style: 'float: left;'
+    .card-footer.text-end
+      = f.button :submit, 'Assign Roles', class: 'btn btn-outline-primary me-2'
+      = link_to 'Back', roles_path, class: 'btn btn-outline-secondary'
 
-.card.mt-5
-  .card-header
-    %h5.card-title All Users and Their Roles
+.card.mt-5.shadow-sm
+  .card-header.bg-secondary.text-white
+    %h5.card-title.text-center All Users and Their Roles
+  
   .card-body
     = search_form_for @q, url: assign_roles_path, method: :get, remote: true do |f|
       .form-group.d-flex.mb-4
         = f.text_field :email_cont, label: "Search by Email", class: 'form-control me-2', placeholder: 'Enter email to search', id: 'email-search'
         = f.submit 'Search', class: 'btn btn-primary'
 
-    %table.table.table-bordered
-      %thead
+    %table.table.table-striped.table-hover.table-bordered.mt-3
+      %thead.table-dark
         %tr
           %th E-posta
           %th Roller
