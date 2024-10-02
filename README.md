@@ -35,6 +35,7 @@ The project includes the following important gems:
 - **Role Management Page**: A basic *role management page* has been added for assigning roles to users.
 
 You can find the design example below:
+
 ![Design Example](app/assets/images/readme.png)
 
 ---
